@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="FirstWindows10App.GamePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FirstWindows10App"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="#FFEEE8E8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="163*"/>
+            <RowDefinition Height="137*"/>
+            <RowDefinition Height="124*"/>
+            <RowDefinition Height="217*"/>
+        </Grid.RowDefinitions>
+        <Image x:Name="logoImage" HorizontalAlignment="Center" Height="100" VerticalAlignment="Top" Source="Assets/Images/microsoft-logo.png" />
+        <TextBox x:Name="answerTextBox" Header="Answer:" HorizontalAlignment="Center" Grid.Row="1" Width="200" TextWrapping="Wrap" VerticalAlignment="Center" Background="{x:Null}" Foreground="#FF00ADEF" FontFamily="Segoe WP Black" BorderBrush="#FF00ADEF"/>
+        <Button x:Name="answerButton" Content="ANSWER" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="#FF00ADEF" Click="answerButton_Click" />
+        <TextBlock x:Name="GameResultTextBlock" HorizontalAlignment="Center"  Grid.Row="3"  Text="Result..." VerticalAlignment="Center"  FontSize="18" Foreground="#FF00ADEF" Visibility="Collapsed"/>
+        <Button x:Name="nextButton" Content="NEXT" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Bottom" Background="{x:Null}" BorderBrush="#FF00ADEF"  Visibility="Collapsed" Click="nextButton_Click" />
+    </Grid>
+</Page>

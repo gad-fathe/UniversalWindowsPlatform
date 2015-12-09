@@ -1,0 +1,14 @@
+﻿<Page
+    x:Class="FirstWindows10App.EndGamePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FirstWindows10App"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="#FFEEE8E8">
+        <TextBlock x:Name="winnerTextBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Winner" VerticalAlignment="Center" Foreground="#FF00ADEF" FontWeight="Bold" FontSize="20"/>
+        <Button x:Name="playAgainButton" Content="PLAY AGAIN" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Center" BorderBrush="#FF00ADEF" Click="playAgainButton_Click"/>
+    </Grid>
+</Page>
