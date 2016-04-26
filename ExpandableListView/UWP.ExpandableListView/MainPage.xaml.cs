@@ -39,6 +39,7 @@ namespace UWP.ExpandableListView
             thickness.Left = 20;
             thickness.Right = 20;
             expandableListView.Margin = thickness;
+            Grid.SetRow(expandableListView, 1);
             MainGrid.Children.Add(expandableListView);
  
         }
