@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="AssistantBotClient.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AssistantBotClient"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <DataTemplate x:Key="MessagesListDataTemplate">
+            <Grid Background="#FF1B9BD6"  Height="60">
+                <TextBlock Text="{Binding Text}" TextWrapping="Wrap" VerticalAlignment="Center" Margin="10, 0, 10, 0"/>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="89*"/>
+            <RowDefinition Height="380*"/>
+            <RowDefinition Height="87*"/>
+            <RowDefinition Height="84*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Assistant Bot" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Foreground="#FF1D59B0" FontSize="20"/>
+        <ListView x:Name="MessagesList" Grid.Row="1" ItemTemplate="{StaticResource MessagesListDataTemplate}"/>
+        <TextBox x:Name="NewMessageTextBox" Grid.Row="2" KeyUp="NewMessageTextBox_KeyUp"/>
+        <Button x:Name="button" Content="SEND" HorizontalAlignment="Center" VerticalAlignment="Center" Click="button_Click" Grid.Row="3"/>
+
+    </Grid>
+</Page>
