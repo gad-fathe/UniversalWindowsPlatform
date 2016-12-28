@@ -1,0 +1,25 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SampleTestApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ViewModels="using:SampleTestApp.ViewModels"
+    x:Class="SampleTestApp.MainPage"
+    mc:Ignorable="d">
+
+    <Page.DataContext>
+        <ViewModels:MainViewModel/>
+    </Page.DataContext>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0" HorizontalAlignment="Center" Source="{Binding MyImageSource}"/>
+        <TextBlock Grid.Row="1" Text="{Binding AnalysisResult}" HorizontalAlignment="Center"/>
+        <Button Grid.Row="2" Content="Analyze" HorizontalAlignment="Center" Command="{Binding AnalyzeImageCommand}" Background="#FF287D97" Foreground="#FFFBFBFB"/>
+    </Grid>
+</Page>
