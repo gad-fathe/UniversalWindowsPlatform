@@ -119,7 +119,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Ninjacat.png" />
-    <Content Include="Assets\sample1.png" />
     <Content Include="Assets\sample2.png" />
     <Content Include="Assets\sample3.png" />
     <Content Include="Assets\sample4.png" />

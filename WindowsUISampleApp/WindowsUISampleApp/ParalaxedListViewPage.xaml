@@ -10,31 +10,22 @@
     Loaded ="Page_Loaded"
     Unloaded="Page_Unloaded">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="513*"/>
-            <ColumnDefinition Width="511*"/>
-        </Grid.ColumnDefinitions>
+        <TextBlock Text="Paralaxed ListView" HorizontalAlignment="Center" VerticalAlignment="top" FontWeight="Bold" Margin="10"/>
         <ListView x:Name="ThumbnailList" 
-                  ContainerContentChanging="ThumbanilList_ContainerContentChanging"
-                  Grid.ColumnSpan="2"
-                  MaxWidth="400"
-                  >
-
+                  ContainerContentChanging="ThumbanilList_ContainerContentChanging">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="data:Thumbnail">
-                    <RelativePanel Width="320" Height="240">
+                    <RelativePanel Height="240">
                         <Canvas x:Name="MyPanel" 
                                 RelativePanel.AlignLeftWithPanel="True"
                                 RelativePanel.AlignTopWithPanel="True"
-                                Width="320" 
                                 Height="240">
                             <Canvas.Clip>
-                                <RectangleGeometry Rect="0, 25, 360, 185" />
+                                <RectangleGeometry Rect="0, 25, 660, 185" />
                             </Canvas.Clip>
                             <Image Source="{x:Bind ImageUrl}"
-                                   Width="450"
-                                   Height="450"
-                                   Stretch="UniformToFill"/>
+                                   Height="500" Width="600"
+                                   Stretch="None"/>
                         </Canvas>
                         <TextBlock RelativePanel.AlignBottomWithPanel="True"
                                    RelativePanel.AlignRightWithPanel="True"
@@ -46,9 +37,5 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <StackPanel Orientation="Vertical" Grid.ColumnSpan="2">
-            <TextBlock Text="Text Shimmer" HorizontalAlignment="Center" FontWeight="Bold"/>
-            <Button Content="NEXT" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="10" Click="Button_Click"/>
-        </StackPanel>
     </Grid>
 </Page>
