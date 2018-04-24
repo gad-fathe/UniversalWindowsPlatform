@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="PushNotificationsApp.UWP.Pages.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PushNotificationsApp.UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="237*"/>
+            <RowDefinition Height="350*"/>
+            <RowDefinition Height="501*"/>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0" Source="ms-appx:///Assets/MainLogo.png" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0"/>
+        <Button Content="GET REGISTRATION ID" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, 30, 0, 0" Command="{Binding GetRegistrationIdCommand}" Grid.Row="1"/>
+        <Button Content="REGISTER FOR PUSH NOTIFICATIONS" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, 70, 0, 0" Command="{Binding RegisterForPushNotifications}" Grid.Row="1"/>
+        <Button Content="UNREGISTER FROM PUSH NOTIFICATION" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, 110, 0, 0" Command="{Binding UnregisterFromPushNotifications}" Grid.Row="1"/>
+        <Button Content="SEND PUSH NOTIFICATION" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, 150, 0, 0" Command="{Binding SendPushNotification}" Grid.Row="1"/>
+        <TextBlock Text="STATUS:" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22"/>
+        <TextBlock Text="{Binding Status}" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Margin="0,50,0,0"/>
+    </Grid>
+</Page>
