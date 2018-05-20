@@ -28,12 +28,12 @@ namespace AzureSignalRTransportApp.UWP
     public sealed partial class MainPage : Page
     {
         private ClientSignalR _hubClient;
-        private MapHelper _mapHelper;
+        private MapManager _mapHelper;
 
         public MainPage()
         {
             this.InitializeComponent();
-            _mapHelper = new MapHelper(TransportMap);
+            _mapHelper = new MapManager(TransportMap);
         }
 
         protected async override void OnNavigatedTo(NavigationEventArgs e)
@@ -43,6 +43,10 @@ namespace AzureSignalRTransportApp.UWP
             await InitializeSignalRClient();
         }
 
+        /// <summary>
+        /// Initialize connection with TransportHub and subscribe to receive location updates.
+        /// </summary>
+        /// <returns></returns>
         private async Task InitializeSignalRClient()
         {
             try

@@ -11,17 +11,20 @@ using Windows.UI.Xaml.Controls.Maps;
 
 namespace AzureSignalRTransportApp.UWP.Utils
 {
-    public class MapHelper
+    public class MapManager
     {
         private MapControl _map;
         public Dictionary<string, MapIcon> LocationUpdatesDictionary { get; }
 
-        public MapHelper(MapControl map)
+        public MapManager(MapControl map)
         {
             _map = map;
             LocationUpdatesDictionary = new Dictionary<string, MapIcon>();
         }
 
+        /// <summary>
+        /// Initialize Bing Map.
+        /// </summary>
         public void InitializeMap()
         {
             BasicGeoposition centerPosition = new BasicGeoposition { Latitude = 52.2326, Longitude = 20.7810 };
@@ -31,6 +34,10 @@ namespace AzureSignalRTransportApp.UWP.Utils
             _map.Center = centerPoint;
         }
 
+        /// <summary>
+        /// Add map push pin with location from location update received from SignalR Service.
+        /// </summary>
+        /// <param name="locationUpdate"></param>
         public void AddMapPushPin(LocationUpdate locationUpdate)
         {
             var landMarks = new List<MapElement>();
@@ -66,6 +73,10 @@ namespace AzureSignalRTransportApp.UWP.Utils
             LocationUpdatesDictionary.Add(locationUpdate.DriverName, locationMapIcon);
         }
 
+        /// <summary>
+        /// Update existing map push pin location.
+        /// </summary>
+        /// <param name="locationUpdate"></param>
         public void UpdatePushPin(LocationUpdate locationUpdate)
         {
             MapIcon mapIcon;
