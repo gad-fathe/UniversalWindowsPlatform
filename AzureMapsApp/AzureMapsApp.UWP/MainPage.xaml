@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="AzureMapsApp.UWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AzureMapsApp.UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
+    mc:Ignorable="d">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="211*"/>
+            <RowDefinition Height="30*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Margin="0,10,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Image Source="Assets/AzureLogo.PNG" Stretch="Uniform" Height="90"/>
+            <Image Source="Assets/Logo.PNG" Stretch="Uniform"/>
+        </StackPanel>
+        <Maps:MapControl x:Name="TransportMap" MapServiceToken="uRoB1Lo9BjPOqfzgLFqD~MpeZz5ZdneU2TVn1OJKBuw~AhkgJneXDp9s0szmlzOEShwQpv34ZiZWgim6G3cwHZhm9iSPgqdwRYQWUAOUdp-N" Grid.Row="1" Margin="10,0,10,0"/>
+        <TextBlock Grid.Row="2" Text="Status..." HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" x:Name="InformationLabel"/>
+    </Grid>
+</Page>
