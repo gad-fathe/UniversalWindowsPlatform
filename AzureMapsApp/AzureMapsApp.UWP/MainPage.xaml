@@ -17,6 +17,7 @@
         <StackPanel Grid.Row="0" Margin="0,10,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
             <Image Source="Assets/AzureLogo.PNG" Stretch="Uniform" Height="90"/>
             <Image Source="Assets/Logo.PNG" Stretch="Uniform"/>
+            <Image Source="Assets/AzureMaps.PNG" Stretch="Uniform" Margin="0, 0, 0 , 10"/>
         </StackPanel>
         <Maps:MapControl x:Name="TransportMap" MapServiceToken="uRoB1Lo9BjPOqfzgLFqD~MpeZz5ZdneU2TVn1OJKBuw~AhkgJneXDp9s0szmlzOEShwQpv34ZiZWgim6G3cwHZhm9iSPgqdwRYQWUAOUdp-N" Grid.Row="1" Margin="10,0,10,0"/>
         <TextBlock Grid.Row="2" Text="Status..." HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" x:Name="InformationLabel"/>
