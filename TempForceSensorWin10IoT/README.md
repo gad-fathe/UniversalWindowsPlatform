@@ -1,4 +1,5 @@
 # Windows 10 IoT Core Force sensor UWP sample connected with Azure IoT Hub
+This sample is connected with article "Windows 10 IoT Core device connected to the Microsoft Azure cloud" available on my [Dev Island Technical Blog](https://devislandblog.wordpress.com/2018/08/14/windows-10-iot-core-device-connected-to-the-microsoft-azure-cloud/) 
 This sample uses SPI communication.
 A temperature/force sensor is connected to an ADC, the ADC is connected to the Raspberry Pi 2 or 3 through SPI Pins. The ADC converts the analog sensor output to a digital value that is then read by the Raspberry Pi 2 or 3 using SPI. The value read from the ADC is displayed on the screen attached to the Raspberry Pi 2 or 3.
 This is basically a simplified version of Potentiometer sensor sample, which has an LED light as an extra output.
