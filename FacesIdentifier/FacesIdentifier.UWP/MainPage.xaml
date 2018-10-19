@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="FacesIdentifier.UWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FacesIdentifier.UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="LayoutRoot" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Column="1">
+            <TextBox x:Name="GroupIdTextBox" Margin="10,30,10,10" PlaceholderText="Group id..."/>
+            <TextBox x:Name="GroupNameTextBox" Margin="10,30,10,10" PlaceholderText="Group name..."/>
+            <TextBox x:Name="PersonNameTextBox" Margin="10,30,10,10" PlaceholderText="Person name..."/>
+            <Button x:Name="TakePictureButton" Content="Take picture" Margin="10,30,10,10" FontSize="24" HorizontalAlignment="Center" Click="TakePictureButton_Click" />
+            <Button x:Name="SavePictureButton" Content="Save picture and train group" Margin="10,30,10,10" FontSize="24" HorizontalAlignment="Center" Click="SavePictureButton_Click" />
+            <TextBlock x:Name="InfoTextBlock" Text="Waiting for data..." Margin="10,30,10,10" TextAlignment="Center" FontSize="18" />
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="0" Margin="5">
+            <Canvas Name="PreviewCanvas" Grid.Row="1" Grid.Column="0" Width="240" Height="240" Background="Gray" Visibility="Visible">
+                <CaptureElement x:Name="previewElement" Width="240" Height="240" HorizontalAlignment="Left" Visibility="Visible"/>
+            </Canvas>
+            <Canvas x:Name="VideoCaptureImageCanvas" Width="540" Height="540">
+                <Image x:Name="VideoCaptureImage" Width="540" Height="540" Margin="5"/>
+            </Canvas>
+        </StackPanel>
+    </Grid>
+</Page>
