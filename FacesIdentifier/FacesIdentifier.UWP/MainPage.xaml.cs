@@ -84,7 +84,7 @@ namespace FacesIdentifier.UWP
 
                 await _faceRecognitionService.CreatePersonGroup(groupID, groupName);
                 await _faceRecognitionService.AddNewPersonToGroup(groupID, personName);
-                Tuple<string, CreatePersonResult> definePersonGroupResult = await _faceRecognitionService.AddNewPersonToGroup(groupID, groupName);
+                Tuple<string, CreatePersonResult> definePersonGroupResult = await _faceRecognitionService.AddNewPersonToGroup(groupID, personName);
                 var registerPersonResult = await _faceRecognitionService.RegisterPerson(definePersonGroupResult.Item1, definePersonGroupResult.Item2, stream);
                 await _faceRecognitionService.TrainPersonGroup(definePersonGroupResult.Item1);
                 var trainingStatus = await _faceRecognitionService.VerifyTrainingStatus(definePersonGroupResult.Item1);
