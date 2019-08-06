@@ -8,10 +8,11 @@ namespace ServerlessIoT.UWP.Services.Interfaces
 {
     public interface IClientSignalR
     {
-        Task Initialize(string connectionUrl);
+        Task Initialize();
         void SubscribeHubMethod(string methodName);
         Task SendHubMessage(string methodName, string data);
         Task CloseConnection();
+        event Action<string> OnMessageReceived;
     }
 
 }

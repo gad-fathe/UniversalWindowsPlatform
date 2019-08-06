@@ -1,4 +1,7 @@
-﻿using ServerlessIoT.UWP.Services;
+﻿using ServerlessIoT.UWP.Providers;
+using ServerlessIoT.UWP.Providers.Interfaces;
+using ServerlessIoT.UWP.Services;
+using ServerlessIoT.UWP.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,22 +27,38 @@ namespace ServerlessIoT.UWP
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private ClientSignalR _hubClient;
+        private ISignalRAccessTokenProvider _signalRAccessTokenProvider;
+        private IClientSignalR _hubClient;
+
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            await InitializeSignalRClient();
         }
 
         private async Task InitializeSignalRClient()
         {
             try
             {
-                _hubClient = new ClientSignalR();
-                await _hubClient.Initialize("https://serverless-iot.service.signalr.net/client/?hub=devicedata");
+                _signalRAccessTokenProvider = new SignalRAccessTokenProvider();
+                _hubClient = new ClientSignalR(_signalRAccessTokenProvider);
+
+                await _hubClient.Initialize();
+
                 _hubClient.SubscribeHubMethod("newMessage");
-                _hubClient.OnMessageReceived += (data) =>
+                _hubClient.OnMessageReceived += async (data) =>
                 {
                     System.Diagnostics.Debug.WriteLine("SignalR Connection got message: " + data);
+
+                    await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, () =>
+                    {
+                        DataTextBlock.Text = data;
+                    });
                 };
             }
             catch (Exception ex)

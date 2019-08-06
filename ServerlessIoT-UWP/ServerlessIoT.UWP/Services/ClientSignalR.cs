@@ -22,27 +22,21 @@ namespace ServerlessIoT.UWP.Services
             }
         }
 
-        private string _connectionUrl;
-        public string ConnectionUrl
-        {
-            get
-            {
-                return _connectionUrl;
-            }
-        }
-
         public ClientSignalR(ISignalRAccessTokenProvider signalRAccessTokenProvider)
         {
             _signalRAccessTokenProvider = signalRAccessTokenProvider;
         }
 
-        //TODO: Decide how to handle token refresh and url config:
-        public async Task Initialize(string connectionUrl)
+        public async Task Initialize()
         {
-            _connectionUrl = connectionUrl;
+            var connectionInfo = await _signalRAccessTokenProvider.AcquireSignalRConnectionInfoAsync();
+            if (connectionInfo == null)
+            {
+                throw new ArgumentNullException("SignalR connection info is empty");
+            }
 
             _hub = new HubConnectionBuilder()
-                .WithUrl(_connectionUrl, options =>
+                .WithUrl(connectionInfo.Url, options =>
                 {
                     options.AccessTokenProvider = async () =>
                     {
