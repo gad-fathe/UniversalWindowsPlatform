@@ -124,8 +124,6 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Providers\Interfaces\ISignalRAccessTokenProvider.cs" />
-    <Compile Include="Providers\SignalRAccessTokenProvider.cs" />
     <Compile Include="Services\ClientSignalR.cs" />
     <Compile Include="Services\Interfaces\IClientSignalR.cs" />
   </ItemGroup>

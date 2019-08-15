@@ -1,6 +1,4 @@
-﻿using ServerlessIoT.UWP.Providers;
-using ServerlessIoT.UWP.Providers.Interfaces;
-using ServerlessIoT.UWP.Services;
+﻿using ServerlessIoT.UWP.Services;
 using ServerlessIoT.UWP.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -27,7 +25,6 @@ namespace ServerlessIoT.UWP
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private ISignalRAccessTokenProvider _signalRAccessTokenProvider;
         private IClientSignalR _hubClient;
 
         public MainPage()
@@ -45,8 +42,7 @@ namespace ServerlessIoT.UWP
         {
             try
             {
-                _signalRAccessTokenProvider = new SignalRAccessTokenProvider();
-                _hubClient = new ClientSignalR(_signalRAccessTokenProvider);
+                _hubClient = new ClientSignalR();
 
                 await _hubClient.Initialize();
 

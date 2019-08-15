@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
-using ServerlessIoT.UWP.Providers.Interfaces;
+using ServerlessIoT.UWP.Config;
 using ServerlessIoT.UWP.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -11,8 +11,6 @@ namespace ServerlessIoT.UWP.Services
 {
     public class ClientSignalR : IClientSignalR
     {
-        private ISignalRAccessTokenProvider _signalRAccessTokenProvider;
-
         private HubConnection _hub;
         public HubConnection Hub
         {
@@ -22,28 +20,14 @@ namespace ServerlessIoT.UWP.Services
             }
         }
 
-        public ClientSignalR(ISignalRAccessTokenProvider signalRAccessTokenProvider)
+        public ClientSignalR()
         {
-            _signalRAccessTokenProvider = signalRAccessTokenProvider;
         }
 
         public async Task Initialize()
         {
-            var connectionInfo = await _signalRAccessTokenProvider.AcquireSignalRConnectionInfoAsync();
-            if (connectionInfo == null)
-            {
-                throw new ArgumentNullException("SignalR connection info is empty");
-            }
-
             _hub = new HubConnectionBuilder()
-                .WithUrl(connectionInfo.Url, options =>
-                {
-                    options.AccessTokenProvider = async () =>
-                    {
-                        var accessToken = await _signalRAccessTokenProvider.AcquireSignalRConnectionInfoAsync();
-                        return accessToken?.AccessToken;
-                    };
-                })
+                .WithUrl(AppConfig.DeviceDataBroadcastFunctionUrl)
                 .Build();
 
             await _hub.StartAsync();

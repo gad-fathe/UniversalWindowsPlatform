@@ -8,6 +8,6 @@ namespace ServerlessIoT.UWP.Config
 {
     static class AppConfig
     {
-        public const string DeviceDataBroadcastFunctionUrl = "<<Function URL>>/negotiate";
+        public const string DeviceDataBroadcastFunctionUrl = "<<Function URL>>/api";
     }
 }
