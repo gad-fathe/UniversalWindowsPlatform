@@ -5,7 +5,7 @@ using UwpSamples.RealTimeAssetsTrackingWithSignalR.UWP.Model;
 
 namespace UwpSamples.RealTimeAssetsTrackingWithSignalR.UWP.Services
 {
-    internal class LiveTrackingService
+    internal class LiveClientervice
     {
         private HubConnection _hub;
         public HubConnection Hub
