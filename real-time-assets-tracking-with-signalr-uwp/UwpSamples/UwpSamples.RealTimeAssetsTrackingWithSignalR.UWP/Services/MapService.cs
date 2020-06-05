@@ -1,22 +1,19 @@
-﻿using AzureSignalRTransportApp.UWP.Communication;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UwpSamples.RealTimeAssetsTrackingWithSignalR.UWP.Model;
 using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml.Controls.Maps;
 
-namespace AzureSignalRTransportApp.UWP.Utils
+namespace UwpSamples.RealTimeAssetsTrackingWithSignalR.UWP.Services
 {
-    public class MapManager
+    internal class MapService
     {
         private MapControl _map;
         public Dictionary<string, MapIcon> LocationUpdatesDictionary { get; }
 
-        public MapManager(MapControl map)
+        public MapService(MapControl map)
         {
             _map = map;
             LocationUpdatesDictionary = new Dictionary<string, MapIcon>();

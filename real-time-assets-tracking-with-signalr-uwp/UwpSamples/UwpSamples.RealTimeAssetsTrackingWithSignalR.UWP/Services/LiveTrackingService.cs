@@ -1,13 +1,11 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using UwpSamples.RealTimeAssetsTrackingWithSignalR.UWP.Model;
 
-namespace AzureSignalRTransportApp.UWP.Communication
+namespace UwpSamples.RealTimeAssetsTrackingWithSignalR.UWP.Services
 {
-    public class ClientSignalR
+    internal class LiveTrackingService
     {
         private HubConnection _hub;
         public HubConnection Hub
@@ -25,10 +23,6 @@ namespace AzureSignalRTransportApp.UWP.Communication
             {
                 return _connectionUrl;
             }
-        }
-
-        public ClientSignalR()
-        {
         }
 
         public async Task Initialize(string connectionUrl)
