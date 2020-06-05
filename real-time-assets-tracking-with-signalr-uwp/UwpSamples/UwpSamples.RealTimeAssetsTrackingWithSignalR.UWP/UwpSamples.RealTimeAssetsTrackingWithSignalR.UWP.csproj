@@ -128,7 +128,7 @@
     </Compile>
     <Compile Include="Model\LocationUpdate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\LiveClientervice.cs" />
+    <Compile Include="Services\LiveTrackingClientService.cs" />
     <Compile Include="Services\MapService.cs" />
   </ItemGroup>
   <ItemGroup>

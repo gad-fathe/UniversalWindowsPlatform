@@ -16,7 +16,7 @@ namespace UwpSamples.RealTimeAssetsTrackingWithSignalR.UWP
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private LiveClientervice _liveTrackingService;
+        private LiveTrackingClientService _liveTrackingService;
         private MapService _mapService;
 
         public MainPage()
@@ -40,7 +40,7 @@ namespace UwpSamples.RealTimeAssetsTrackingWithSignalR.UWP
         {
             try
             {
-                _liveTrackingService = new LiveClientervice();
+                _liveTrackingService = new LiveTrackingClientService();
                 await _liveTrackingService.Initialize("http://localhost:5000/live-tracking");
                 _liveTrackingService.SubscribeHubMethod("location-update");
                 _liveTrackingService.OnMessageReceived += (locationUpdate) =>
